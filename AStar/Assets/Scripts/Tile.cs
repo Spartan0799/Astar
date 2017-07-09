@@ -20,7 +20,7 @@ public class Tile : MonoBehaviour
 			return;
 
 		if( highlighted )
-			propertyBlock.SetColor( "_Color", Color.yellow );
+			propertyBlock.SetColor( "_Color", Color.red );
 		else
 			propertyBlock.Clear();
 
@@ -35,6 +35,9 @@ public class Tile : MonoBehaviour
 
 	private void OnMouseDown()
 	{
-		grid.MoveTo( position );
+		if (!isWall)
+        {
+            grid.MoveTo(position);
+        }
 	}
 }
